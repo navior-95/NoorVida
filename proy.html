@@ -9,7 +9,8 @@
     body {padding:0; margin:0;box-sizing:border-box;}
 	body { font-family: Arial,sans-serif ; margin: 0; line-height: 0;
 	        flex-direction:colum;min-height:100vh;}
-	header {min-height:50px; background: #f7f5e9; padding: 20px; text-align: center;}
+	header {min-height:50px; background: #f7f5e9; padding: 20px; text-align: center;
+  font-weight: bold;}
 
 	.logo {display:block;justify-content:center; align-items: center; line-height: 3; color:#684122;}
 	.logo img {height: 120px; width:140px; margin-right:0px;}
@@ -24,11 +25,17 @@
     footer { background-color: #f7f5e9; color: #684122; text-align: center; padding: 15px; line-height:.2; }
 	p{line-height:.5;}
 	section .contacto {line-height:1.6;}
-    @media (max-width: 10px)
+
+    @media (max-width: 600px){
+  
+  .galeria {
+    grid-template-columns: 1fr;
+  }}
 	
 	.galeria {
+    align-items: start;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 900px;
   margin: 2rem auto;
@@ -41,6 +48,13 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
   transition: transform 0.3s ease;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.item.active {
+  height: auto;      
+  min-height: 550px; 
 }
 
 .item:hover {
@@ -61,6 +75,51 @@
 }
 
 p{line-height:1.5;}
+
+div.anteriores {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-size: 500%;
+  padding: 30px 20px;
+  flex-wrap: wrap;
+}
+
+.imagen-item {
+  max-width: 280px;
+  text-align: center;
+}
+
+.imagen-item img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+.des-ant {
+  padding: 15px;
+  font-size: 1rem;
+  color: #614729;
+  background-color: #ffffff;
+}
+
+
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 0;
+    margin-bottom: 1rem
+  }
+}
+.item ul {
+  display: none;
+  margin-top: 10px;
+}
+
+.item.active ul {
+  display: block;
+}
    
    </style>
 </head>
@@ -68,7 +127,8 @@ p{line-height:1.5;}
   <header>
     <a href = "index.html" class="logo">
     <img src="logo2.png" alt="logo">
-    <a><strong>Nuestros programas</strong></a>
+    <a href="#galeria">Nuestros programas</a>
+    <a href="#anteriores">Galería de proyectos</a>
  </header>
 
 <section id="proyectos">
@@ -80,6 +140,7 @@ p{line-height:1.5;}
     <li><strong>Manos que Transforman:</strong> Circulos de emprendimiento social.</li>
 	<li><strong>Historias que Sanan:</strong> Comunicación para el Cambio.</li>
 	<li><strong>Formalízate con Noor Vida:</strong> Introducción al SECOP I y II</li>
+  <li><strong>Proyectos anteriores:</strong> Galería de fotos</li>
 	
   </ul>
 </section>
@@ -101,7 +162,7 @@ p{line-height:1.5;}
   <div class="galeria">
     <div class="item">
       <img src="p1.jpg" alt="Proyecto 1">
-      <div class="descripcion"><strong>Cuidar para Sanar</strong> – Bienestar Emocional y Comunitario.</div>
+      <div class="descripcion"><strong>Cuidar para Sanar</strong> - Bienestar Emocional y Comunitario.</div>
 	    <ul>
         <li>Talleres vivenciales presenciales y virtuales sobre autocuidado, emociones, autoestima, límites y relaciones.</li>
         <li>Grupos de escucha activa / Círculos de apoyo emocional.</li>
@@ -139,7 +200,7 @@ p{line-height:1.5;}
 		</ul>
     </div>
 	<div class="item">
-      <img src="p5.jpg" alt="Proyecto 4">
+      <img src="p5.jpg" alt="Proyecto 5">
       <div class="descripcion"><strong>Formalízate con Noor Vida </strong> - Introducción al SECOP I y II</div>
 	  <ul>
         <p>1- Cómo registrarse</p>
@@ -164,6 +225,33 @@ p{line-height:1.5;}
   </div>
 </section>
 
+<section id="anteriores">
+  <h2 style="text-align: center; color: #747a34;">Galería de proyectos anteriores</h2>
+  <div class="anteriores">
+    <div class="imagen-item">
+      <img src="test2.jpg" alt="idx1">
+      <p class="des-ant">proyecto 1</p>
+    </div>
+    <div class="imagen-item">
+      <img src="test3.jpg" alt="idx2">
+      <p class="des-ant">proyecto 2</p>
+    </div>
+    <div class="imagen-item">
+      <img src="test4.jpg" alt="idx3">
+      <p class="des-ant">proyecto 3</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.item img').forEach(imagen => {
+    imagen.addEventListener('click', () => {
+      imagen.closest('.item').classList.toggle('active');
+    });
+  });
+</script>
+  
+
 <footer>
   <p>&copy; 2025 Fundación Noor Vida.Colombia.</p>
   <p>Email: fnoorvida@gmail.com</p>
@@ -174,6 +262,6 @@ p{line-height:1.5;}
   <a href="https://www.instagram.com/fundacionnoorvida?igsh=Z2dnZGxhNWxiMDBp" target="_blank">
   <i class="fab fa-instagram"></i></a>
 </footer>
- 
+
 </body>
 </html>
