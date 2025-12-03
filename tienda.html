@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Noor Vida</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+  <header id="encabezado">
+    <div class="contenedor-central">
+      <div class="logo">
+    <a href="index.html">
+      <img src="logo2.png" alt="Logo" id="logo">
+    </a>
+  </div>
+      <nav class="menu-horizontal">
+        <ul>
+          <li><a href="index.html#conocenos">Conócenos</a></li>
+          <li><a href="index.html#programas">Nuestros programas</a></li>
+          <li><a href="index.html#contactenos">¿Cómo ayudar?</a></li>
+          <li><a href="index.html">Transparencia</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="#pie">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="hamburguesa" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <section id="tienda" class="tienda">
+    <h2>Nuestra Tienda</h2>
+
+    <div class="productos">
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/dc/80/d5/dc80d5e6cc202b637f0a50b90a082e6c.jpg" alt="Producto 1">
+        <h3>Bordado "La vida es bella"</h3>
+        <p class="precio">$50.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/f8/38/1e/f8381e6be60a6e703989d5ee2c327436.jpg" alt="Producto 2">
+        <h3>Bolso flores</h3>
+        <p class="precio">$135.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/736x/e0/bc/de/e0bcdeb8e94544dfb9088de6e9d3208a.jpg" alt="Producto 3">
+        <h3>Jarron barro</h3>
+        <p class="precio">$128.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/736x/e2/26/a5/e226a516540919e52c15f0fec6fcde22.jpg" alt="Producto 4">
+        <h3>Plato formas</h3>
+        <p class="precio">$20.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/64/37/78/64377897725be1a24f01f044ce83c668.jpg" alt="Producto 5">
+        <h3>Camiseta bordada Colombia</h3>
+        <p class="precio">$90.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/aa/1f/97/aa1f97470bb2b9153d26cba152c206ba.jpg" alt="Producto 6">
+        <h3>Poncho tejido</h3>
+        <p class="precio">$320.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/34/0a/e8/340ae83048bb5d52f2999bc167ab8366.jpg" alt="Producto 7">
+        <h3>Bolso Mola</h3>
+        <p class="precio">$250.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/2a/f7/48/2af748484e57e58ae3d9bf44e3392ed5.jpg" alt="Producto 8">
+        <h3>Sombrero</h3>
+        <p class="precio">$140.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+
+      <div class="producto">
+        <img src="https://i.pinimg.com/1200x/cc/b1/94/ccb194de45ec23182df24095e2a4d855.jpg" alt="Producto 9">
+        <h3>Bordado Tortuga</h3>
+        <p class="precio">$70.000</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Menú desplegable -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-lateral">
+      <button class="cerrar" onclick="cerrarMenu()">×</button>
+      <ul>
+        <li><a href="index.html#conocenos" onclick="cerrarMenu()">Conócenos</a></li>
+        <li><a href="index.html#programas" onclick="cerrarMenu()">Nuestros programas</a></li>
+        <li><a href="index.html#contactenos" onclick="cerrarMenu()">¿Cómo ayudar?</a></li>
+        <li><a href="index.html" onclick="cerrarMenu()">Transparencia</a></li>
+        <li><a href="tienda.html" onclick="cerrarMenu()">Tienda</a></li>
+        <li><a href="#pie" onclick="cerrarMenu()">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const overlay = document.getElementById('menuOverlay');
+      const isActive = overlay.classList.contains('activo');
+
+      if (isActive) {
+        overlay.classList.remove('activo');
+        document.body.classList.remove('bloqueado');
+      } else {
+        overlay.classList.add('activo');
+        document.body.classList.add('bloqueado');
+      }
+    }
+
+    function cerrarMenu() {
+      document.getElementById('menuOverlay').classList.remove('activo');
+      document.body.classList.remove('bloqueado');
+    }
+  </script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const header = document.getElementById("encabezado");
+      if (window.scrollY === 0) {
+        header.classList.add("vidrio");
+        header.classList.remove("scrolled");
+      } else {
+        header.classList.remove("vidrio");
+        header.classList.add("scrolled");
+      }
+    });
+
+  </script>
+
+  <script>
+    const carruselInner = document.getElementById("carruselInner");
+    const puntos = document.querySelectorAll(".punto");
+
+    function mostrarSlide(indice) {
+      carruselInner.style.transform = `translateX(-${indice * 100}vw)`;
+      puntos.forEach((punto, i) => {
+        punto.classList.toggle("activo", i === indice);
+      });
+    }
+
+    puntos.forEach((punto, i) => {
+      punto.addEventListener("click", () => mostrarSlide(i));
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.item img').forEach(imagen => {
+      imagen.addEventListener('click', () => {
+        imagen.closest('.item').classList.toggle('active');
+      });
+    });
+  </script>
+
+  <footer id="pie">
+    <p>&copy; 2025 Fundación Noor Vida.Colombia.</p>
+    <p>Email: fnoorvida@gmail.com</p>
+    <p>Teléfono: +57 314 3135483</p>
+    <p>Síguenos en nuestras redes sociales</p>
+    <a href="https://www.facebook.com/FundacionNoorVida?mibextid=ZbWKwL" target="_blank">
+      <i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/fundacionnoorvida?igsh=Z2dnZGxhNWxiMDBp" target="_blank">
+      <i class="fab fa-instagram"></i></a>
+  </footer>
+
+</body>
+
+</html>
